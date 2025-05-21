@@ -1,0 +1,25 @@
+input CharacterInput {
+  name: String!
+  health: Int!
+  killed_by: [String]
+}
+
+type Character{
+  name: String!
+  health: Int!
+  is_alive: Boolean!
+  killed_by: [Character]
+}
+
+type Query {
+  getCharacter(name: String!): Character
+}
+
+type Mutation {
+  createCharacter(input: CharacterInput!): Character
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}

@@ -1,0 +1,41 @@
+service: my-graphql-service
+
+provider:
+  name: aws
+  runtime: python3.9
+  region: us-east-1
+  environment:
+    DEBUG: "true"
+
+functions:
+  graphql:
+    handler: handler.handler
+    events:
+      - http:
+          path: /
+          method: get
+      - http:
+          path: /
+          method: post
+
+package:
+  # include only needed files
+  include:
+    - handler.py
+    - schema.graphql
+    - requirements.txt
+
+plugins:
+  - serverless-offline
+  - serverless-python-requirements
+
+custom:
+  pythonRequirements:
+    dockerizePip: true
+    slim: true
+  serverless-offline:
+    port: 3000
+    prefix: dev
+    corsAllowOrigin: '*'
+
+# sls deploy --aws-profile personal

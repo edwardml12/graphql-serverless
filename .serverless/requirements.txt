@@ -1,0 +1,7 @@
+ariadne==0.17.0
+boto3==1.27.0
+dotenv==0.9.9
+graphql-core>=3.2
+psycopg2-binary==2.9.10
+pytest==8.3.4
+python-dotenv==1.0.1

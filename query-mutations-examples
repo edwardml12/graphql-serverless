@@ -1,0 +1,23 @@
+
+query {
+  getCharacter(name: "Clicker") {
+    name
+    health
+    is_alive
+    killed_by{
+      name
+      health
+    }
+  }
+}
+
+
+mutation {
+  createCharacter(input: { name: "Joel", health: 120, killed_by: ["Ellie"] }) {
+    name
+    is_alive
+    killed_by{
+      name
+    }
+  }
+}

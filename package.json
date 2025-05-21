@@ -1,0 +1,5 @@
+{
+    "scripts": {
+      "start": "nodemon -e py --exec sls offline start"
+    }
+  }
